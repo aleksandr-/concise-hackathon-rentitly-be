@@ -12,7 +12,13 @@ public interface ItemRepository extends JpaRepository<Item, Long> {
 
     public List<Item> findByNameLikeAndLocationLikeOrderByPrice(String name, String location);
 
-    public List<Item> findByNameLikeAndLocationLikeOrderByRatingDescPriceAsc(String name, String location);
+    public List<Item> findByNameContainingIgnoreCaseAndLocationContainingIgnoreCase(String name, String location);
+
+    public List<Item> findByNameContainingIgnoreCaseAndLocationContainingIgnoreCaseOrderByPrice(String name, String location);
+
+    public List<Item> findByNameContainingIgnoreCaseAndLocationContainingIgnoreCaseOrderByRatingDesc(String name, String location);
+
+    public List<Item> findByNameContainingIgnoreCaseAndLocationContainingIgnoreCaseOrderByRatingDescPriceAsc(String name, String location);
 
     public List<Item> findAllByOrderByPrice();
 

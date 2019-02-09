@@ -1,4 +1,4 @@
 # Dockerfile
-FROM postgre:10.6
+FROM postgres:9.6
 
 ADD scripts/init_docker_postgres.sql /docker-entrypoint-initdb.d/

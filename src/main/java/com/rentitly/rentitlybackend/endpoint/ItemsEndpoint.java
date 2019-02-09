@@ -38,6 +38,8 @@ public class ItemsEndpoint {
     @CrossOrigin
     @RequestMapping("/items")
     public List<Item> findAll() {
+        System.out.println(itemRepository.findAll());
+
         return itemRepository.findAll();
     }
 

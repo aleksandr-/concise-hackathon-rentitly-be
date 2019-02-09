@@ -23,5 +23,9 @@ public class Item {
     private String location;
     @Column(name = "price")
     private double price;
+    @Column(name = "description")
+    private String description;
+    @Column(name = "imageurl")
+    private String imageurl;
 
 }

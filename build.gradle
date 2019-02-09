@@ -31,4 +31,6 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
 	compile('org.projectlombok:lombok')
+	compile group: 'javax.ws.rs', name: 'javax.ws.rs-api', version: '2.1.1'
+
 }

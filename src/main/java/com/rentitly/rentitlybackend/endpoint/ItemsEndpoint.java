@@ -3,6 +3,7 @@ package com.rentitly.rentitlybackend.endpoint;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -25,21 +26,25 @@ public class ItemsEndpoint {
         this.itemRepository = itemRepository;
     }
 
+    @CrossOrigin
     @RequestMapping("/items")
     public List<Item> findAll() {
         return itemRepository.findAll();
     }
 
+    @CrossOrigin
     @RequestMapping(value = "/itemssearch", method = RequestMethod.GET)
     public List<Item> findAndSortById(@RequestParam("name") String name, @RequestParam("location") String location ) {
         return itemRepository.findByNameContainingIgnoreCaseAndLocationContainingIgnoreCase(name, location);
     }
 
+    @CrossOrigin
     @RequestMapping(value = "/items_search_order_by_price", method = RequestMethod.GET)
     public List<Item> findAndSortByPrice(@RequestParam("name") String name, @RequestParam("location") String location ) {
         return itemRepository.findByNameContainingIgnoreCaseAndLocationContainingIgnoreCaseOrderByPrice(name, location);
     }
 
+    @CrossOrigin
     @RequestMapping(value = "/items_search_order_by_rating", method = RequestMethod.GET)
     public List<Item> findAndSortByRating(@RequestParam("name") String name, @RequestParam("location") String location ) {
         return itemRepository.findByNameContainingIgnoreCaseAndLocationContainingIgnoreCaseOrderByRatingDescPriceAsc(name, location);
